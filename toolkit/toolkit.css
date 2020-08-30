@@ -1,0 +1,262 @@
+/********************************************
+********************************************
+
+DEV TOOLKIT - CSS FILE
+
+Contents:
+  - GA Event Viewer
+
+********************************************
+********************************************/
+  
+
+  #dev_toolkit {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 100px;
+    width: 100px;
+    /*border: dashed 2px #fff;*/
+  }
+  #dev_toolkit .icon {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    transition: 0.5s ease-in-out;
+    transform: translate3d(0px, 0px, 0);
+    transform-origin: center;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fb0000;
+    border: solid 2px #fff;
+    color: #fff;
+  }
+  #dev_toolkit.active .icon{
+    
+    box-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fb0000, 0 0 35px #fb0000, 0 0 40px #fb0000, 0 0 50px #fb0000, 0 0 75px #fb0000;
+  }
+  #dev_toolkit .version {
+    position: absolute;
+    width: 100%;
+    top: 65px;
+    right: -5px;
+    font-size: 12px;
+    color: #fff;
+    text-shadow: 
+      1px 1px 5px #000,
+      -1px 1px 5px #000,
+      1px -1px 5px #000,
+      -1px -1px 5px #000;
+  }
+  #dev_toolkit .menu {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    transition: 0.5s ease-in-out;
+    transform: translate3d(-600px, 100px, 0);
+    transform-origin: center;
+    height: 500px;
+    width: 500px;
+    border: dashed 2px #fff;
+    border-radius: 100%;
+  }
+  #dev_toolkit .menu .menu_cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    background: #f00;
+    border: solid 5px #fb0000;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+  }
+  #dev_toolkit .menu .menu_cell.active{
+    box-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 15px #fff, 0 0 20px #fb0000, 0 0 35px #fb0000, 0 0 40px #fb0000;
+  }
+  #dev_toolkit .menu .menu_cell:hover {
+    border-color: #fff;
+  }
+  #dev_toolkit .menu .menu_cell:nth-of-type(1) {
+    top: calc(0% - 50px);
+    right: calc(0% + 135px);
+  }
+  #dev_toolkit .menu .menu_cell:nth-of-type(2) {
+    top: calc(0% + 15px);
+    right: calc(0% + 15px);
+  }
+  #dev_toolkit .menu .menu_cell:nth-of-type(3) {
+    top: calc(0% + 135px);
+    right: calc(0% - 45px);
+  }
+  #dev_toolkit .menu .menu_cell i {
+    text-align: center;
+    font-size: 36px;
+    color: #fff;
+  }
+  #dev_toolkit .menu .menu_cell p {
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin-top: 5px;
+  }
+  #dev_toolkit:hover .icon {
+    transform: translate3d(-100px, 100px, 0);
+  }
+  #dev_toolkit:hover .menu {
+    transform: translate3d(-250px, -150px, 0);
+  }
+
+
+/********************************************
+
+GA EVENTS VIEWER
+  
+  - creates a tooltip containing GA event details
+
+********************************************/
+
+  
+  .ga_viewer_tooltip {
+    
+    display: inline-block;
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    width: max-content;
+    max-width: 250px;
+    background-color: #fff;
+    border: solid 2px #fb0000;
+    box-shadow: -1px 2px 2px rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    pointer-events: none;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    z-index: 4;
+    transition: 0.25s ease-in-out;
+  }
+  .ga_viewer_tooltip i{
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+  }
+
+
+
+
+
+
+  /********************************************
+
+ADA COMPLIANCE
+
+Author: Alec Reimel
+
+  -This CSS file highlights elements that are missing ADA-focused
+  attributes.  The effects can be removed by fixing the ADA issues, 
+  making this a very useful tool for forcing yourself to do ADA.
+
+  Codepen link: https://codepen.io/areimel/pen/NWKmjgm
+
+********************************************/
+
+html.--toolkit_ADA:not([lang]):after{
+  content: 'NO LANG ATTRIBUTE';
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,0,0,.75);
+  color: #fff;
+  font-size: 100px;
+}
+
+html.--toolkit_ADA:after{
+  content: '';
+  background-image: url("/toolkit/mobile-thumb-zones.png");
+  background-size: cover;
+  background-position: center;
+  opacity: .75;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  display: none;
+}
+@media only screen and (max-width : 750px) {
+  html.--toolkit_ADA:after{
+    display: block;
+  }
+}
+
+.--toolkit_ADA img:not([alt]) {
+  filter: blur(5px) !important;
+  border: solid 5px #fb0000 !important;
+}
+.--toolkit_ADA input:not([aria-label]) {
+  filter: blur(0px) !important;
+  border: solid 5px #fb0000 !important;
+}
+.--toolkit_ADA textarea:not([aria-label]) {
+  filter: blur(0px) !important;
+  border: solid 5px #fb0000 !important;
+}
+.--toolkit_ADA select:not([aria-label]) {
+  filter: blur(0px) !important;
+  border: solid 5px #fb0000 !important;
+}
+.--toolkit_ADA a:not([aria-label]) {
+  filter: blur(0px) !important;
+  border: solid 5px #fb0000 !important;
+}
+
+
+.ada_error_alert{
+  background-color: #fb0000;
+  color: #fff;
+  padding: 5px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  left: 0;
+}
+
+.ada_error_alert .icon{
+  background-color: #fff;
+  color: #fb0000;
+  font-size: 16px;
+  height: 25px;
+  width: 25px;
+  position: relative;  
+}
+.ada_error_alert .icon>i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+}
+.ada_error_alert .copy{
+  font-size: 24px;
+  margin-left: 15px;
+}
